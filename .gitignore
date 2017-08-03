@@ -10,3 +10,7 @@ ucc/bin/
 *.jar
 logs/
 log/
+.metadata/
+RemoteSystemsTempFiles/
+.gitignore
+.git/

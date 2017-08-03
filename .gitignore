@@ -12,5 +12,4 @@ logs/
 log/
 .metadata/
 RemoteSystemsTempFiles/
-.gitignore
 .git/

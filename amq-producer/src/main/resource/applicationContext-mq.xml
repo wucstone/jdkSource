@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"  
+    xmlns:tx="http://www.springframework.org/schema/tx" xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util" xmlns:jdbc="http://www.springframework.org/schema/jdbc"  
+    xmlns:cache="http://www.springframework.org/schema/cache"  
+    xsi:schemaLocation="
+    http://www.springframework.org/schema/beans  
+    http://www.springframework.org/schema/beans/spring-beans.xsd">  
+  
+	<bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">  
+   	 	<property name="brokerURL" value="${brokerURL}"/>  
+	</bean> 
+	
+	<bean id="jmsFactory" class="org.apache.activemq.pool.PooledConnectionFactory" destroy-method="stop">
+	    <property name="connectionFactory" ref="targetConnectionFactory"></property>
+    </bean>
+    
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+	    <property name="connectionFactory" ref="jmsFactory"> </property>
+	    <property name="explicitQosEnabled" value="true" /> 
+	    <property name="deliveryMode" value="1" /> 
+        <property name="pubSubDomain" value="false" />  
+    </bean>
+    <bean id="destination" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg index="0" value="${queueName}" />
+    </bean>
+    
+</beans>  

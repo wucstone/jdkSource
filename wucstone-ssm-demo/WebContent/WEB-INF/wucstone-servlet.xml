@@ -14,5 +14,16 @@
     <!--启用注解，设置自动扫描包 ,将带有注解的类 纳入spring容器管理 -->  
     <context:annotation-config/> 
     <context:component-scan base-package="com.wucstone.ssm.*" />  
-<!--     <context:property-placeholder location="classpath:zoo.properties"/> -->
+    
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/pages/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+    
+    
+    
+    
+    
+    
 </beans>  

@@ -76,7 +76,7 @@ public class PmsLoginAction extends BaseAction {
 			}
 			// 加密明文密码
 			// 验证密码
-			if (user.getUserPwd().equals(DigestUtils.sha1Hex(pwd))) {
+			if (user.getUserPwd().equals(pwd)) {
 				// 用户信息，包括登录信息和权限
 				this.getSessionMap().put(SessionConstant.USER_SESSION_KEY, user);
 

@@ -1,8 +1,15 @@
 package dubbo.test;
 
+import java.io.File;
+import java.io.InputStream;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import wusc.edu.facade.user.entity.PmsUser;
+import wusc.edu.service.user.biz.PmsUserBiz;
 
 /**
  * 
@@ -18,8 +25,9 @@ public class DubboProvider {
 	public static void main(String[] args) {
 		try {
 			ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring/spring-context.xml");
-			context.start();
+			
 		} catch (Exception e) {
+			e.printStackTrace();
 			log.error("== DubboProvider context start error:",e);
 		}
 		synchronized (DubboProvider.class) {

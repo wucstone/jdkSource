@@ -14,5 +14,5 @@
     <!--启用注解，设置自动扫描包 ,将带有注解的类 纳入spring容器管理 -->  
     <context:annotation-config/> 
     <context:component-scan base-package="com.wucstone.ssm.*" />  
-<!--     <context:property-placeholder location="classpath:zoo.properties"/> -->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
 </beans>  

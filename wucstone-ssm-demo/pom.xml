@@ -70,6 +70,16 @@
 		      <version>${spring.version}</version>
 		</dependency>	
 
+
+
+
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis</artifactId>
+		    <version>3.4.4</version>
+		</dependency>
+
 				
 		<!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
 		<dependency>

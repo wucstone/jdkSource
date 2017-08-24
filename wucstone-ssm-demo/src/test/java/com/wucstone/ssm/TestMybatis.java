@@ -13,7 +13,7 @@ public class TestMybatis {
 	
 	@Test
 	public void testMybatis(){
-		SqlSessionFactory sqlSessionFactory=new SqlSessionFactoryBuilder().build(Thread.currentThread().getContextClassLoader().getResourceAsStream("mybatis-config"));
+		SqlSessionFactory sqlSessionFactory=new SqlSessionFactoryBuilder().build(Thread.currentThread().getContextClassLoader().getResourceAsStream("mybatis-config.xml"));
 		SqlSession sqlSession=sqlSessionFactory.openSession(true);
 		Map params=new HashMap();
 		params.put("userName", "wucstone");

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wucstone.ssm.dao.UserMapper" >
+<mapper namespace="com.wucstone.ssm.mapper.UserMapper" >
   	<insert id="insertUserInfo"  parameterType="java.util.Map" >
           insert into t_user (username,userage,useraddr) values 
     	   (#{userName,jdbcType=VARCHAR},

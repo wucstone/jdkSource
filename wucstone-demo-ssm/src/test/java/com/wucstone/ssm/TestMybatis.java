@@ -17,6 +17,7 @@ public class TestMybatis {
 		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(Thread.currentThread().getContextClassLoader().getResourceAsStream("mybatis-config.xml"));
 		/** 获得SqlSession 会话对象 */
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+<<<<<<< HEAD:wucstone-ssm-demo/src/test/java/com/wucstone/ssm/TestMybatis.java
 		/** 使用会话工厂操作数据库 */
 		Map param=new HashMap();
 		param.put("userName","wucstone");
@@ -25,6 +26,8 @@ public class TestMybatis {
 		sqlSession.insert("com.wucstone.ssm.dao.UserMapper.insertUserInfo", param);
 //		sqlSession.commit();
 		sqlSession.rollback();
+=======
+>>>>>>> 95bf2d1f72c1903781cbb992b8355835bab58a69:wucstone-demo-ssm/src/test/java/com/wucstone/ssm/TestMybatis.java
 	}
 
 }

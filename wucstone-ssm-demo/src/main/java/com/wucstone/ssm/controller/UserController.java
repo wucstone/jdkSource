@@ -34,4 +34,10 @@ public class UserController {
 			return "login";
 		}
 	}
+	
+	@RequestMapping("/userIndex")
+	public String userIndex(HttpServletRequest request,HttpServletResponse response) throws Exception {
+		
+		return "/user/index";
+	}
 }

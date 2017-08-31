@@ -12,4 +12,8 @@
     <select id="getUserInfoByParams" resultType="java.util.Map">
     	select userName,userAge,userAddr from t_user
     </select>
+    <select id="getUserCountByParams" resultType="int">
+    	select count(1) as total from t_user
+    </select>
+    
 </mapper>

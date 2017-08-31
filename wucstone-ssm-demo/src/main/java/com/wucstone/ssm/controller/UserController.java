@@ -1,5 +1,7 @@
 package com.wucstone.ssm.controller;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.druid.support.json.JSONUtils;
 import com.wucstone.ssm.service.UserService;
 import com.wucstone.ssm.util.HttpRequestUtil;
 
@@ -38,6 +41,18 @@ public class UserController {
 	@RequestMapping("/userIndex")
 	public String userIndex(HttpServletRequest request,HttpServletResponse response) throws Exception {
 		
-		return "/user/index";
+		return "user/userIndex";
+	}
+	@RequestMapping(value="/getUserList", produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public String getUserList(HttpServletRequest request,HttpServletResponse response) throws Exception {
+		Map<String,String> params=HttpRequestUtil.getParamsByRequest(request);
+		Map result=new HashMap();
+		
+		int total=userService.getUserCountByParams(params);
+		List<Map<String,String>> rows=userService.getUserListByParams(params);
+		result.put("total",total );
+		result.put("rows", rows);
+		return JSONUtils.toJSONString(result);
 	}
 }

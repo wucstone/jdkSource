@@ -1,5 +1,6 @@
 package com.wucstone.ssm.service.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,16 @@ public class UserServiceImpl implements UserService {
 			return false;
 		}
 
+	}
+
+	@Override
+	public int getUserCountByParams(Map<String, String> params)throws Exception {
+		return userDao.getUserCountByParams(params);
+	}
+
+	@Override
+	public List<Map<String, String>> getUserListByParams(Map<String, String> params) throws Exception {
+		return userDao.getUserListByParams(params);
 	}
 
 }

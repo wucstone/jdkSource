@@ -13,7 +13,16 @@
     <context:annotation-config/> 
     <context:component-scan base-package="com.wucstone.ssm.controller*" />  
     
-    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+    	<property name="messageConverters">
+	        <list>
+	            <bean class="com.wucstone.ssm.util.WucstoneMessageConvert" />
+	        </list>
+	    </property>
+    
+    
+    </bean>
+    
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/pages/" />
 		<property name="suffix" value=".jsp" />

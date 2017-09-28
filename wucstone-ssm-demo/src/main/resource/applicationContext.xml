@@ -37,19 +37,27 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
     	<property name="dataSource" ref="dataSource" />
     	<property name="configLocation" value="classpath:mybatis-config.xml" />
-<!--     	<property name="mapperLocations" value="com/wucstone/*.xml" /> -->
+    	<property name="mapperLocations" value="classpath*:/com/wucstone/*Mapper.xml" />
     </bean>
     
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
         <constructor-arg index="0" ref="sqlSessionFactory" />
     </bean>
-    
-<!--     <bean id="userDao" class="org.mybatis.spring.mapper.MapperFactoryBean">   -->
-<!-- 	     <property name="mapperInterface" value="com.springMyBatis.system.dao.UserDao"></property>   -->
-<!-- 	     <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>   -->
-<!-- 	</bean>   -->
-    
-    
-    
 <!--     <context:property-placeholder location="classpath:zoo.properties"/> -->
+
+
+<!--需要对每个dao都在spring的配置文件里声明一下
+<bean id="awardDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    <property name="mapperInterface" value="com.wlm.test.award.AwardDao" />
+    <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+</bean>-->
+
+
+
+
+<!-- 会对basePackage下的dao自动创建mapperFactoryBean -->
+<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+  <property name="basePackage" value="com.wucstone.ssm.mapper" />
+    <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+</bean>
 </beans>  

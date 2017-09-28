@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wucstone.ssm.dao.UserDao;
+import com.wucstone.ssm.mapper.UserMapper;
 import com.wucstone.ssm.service.UserService;
 
 @Service("userService")
@@ -14,6 +15,9 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserDao userDao;
+	
+	@Autowired
+	private UserMapper userMapper;
 
 	public Boolean userLogin(Map<String, String> params) throws Exception {
 		
@@ -33,7 +37,9 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<Map<String, String>> getUserListByParams(Map<String, String> params) throws Exception {
-		return userDao.getUserListByParams(params);
+		
+		return userMapper.getUserListByParams(params);
+//		return userDao.getUserListByParams(params);
 	}
 
 }

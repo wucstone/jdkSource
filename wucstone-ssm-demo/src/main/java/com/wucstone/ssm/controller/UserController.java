@@ -43,7 +43,7 @@ public class UserController {
 		
 		return "user/userIndex";
 	}
-	@RequestMapping(value="/getUserList", produces = "application/json; charset=utf-8")
+	@RequestMapping(value="/getUserList")
 	@ResponseBody
 	public String getUserList(HttpServletRequest request,HttpServletResponse response) throws Exception {
 		Map<String,String> params=HttpRequestUtil.getParamsByRequest(request);

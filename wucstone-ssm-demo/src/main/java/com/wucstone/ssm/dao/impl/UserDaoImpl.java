@@ -14,12 +14,6 @@ public class UserDaoImpl implements UserDao {
 	
 	private SqlSessionTemplate sqlSession;
 	
-	
-
-
-	public SqlSessionTemplate getSqlSession() {
-		return sqlSession;
-	}
 	@Autowired
 	public void setSqlSession(SqlSessionTemplate sqlSession) {
 		this.sqlSession = sqlSession;

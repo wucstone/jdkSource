@@ -1,5 +1,6 @@
 package com.wucstone.ssm.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<Map<String, String>> getUserListByParams(Map<String, String> params) throws Exception {
 		
+		Map<String,String> map=new HashMap<String, String>();
+		map.put("name", "name");
+		
+		
+//		userMapper.insertUserInfo(map);
 		return userMapper.getUserListByParams(params);
 //		return userDao.getUserListByParams(params);
 	}

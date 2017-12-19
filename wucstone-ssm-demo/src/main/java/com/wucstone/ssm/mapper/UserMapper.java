@@ -7,4 +7,6 @@ public interface UserMapper {
 
 	List<Map<String, String>> getUserListByParams(Map<String, String> params);
 
+	void insertUserInfo(Map<String, String> map);
+
 }

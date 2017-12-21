@@ -10,7 +10,7 @@ import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
-public class TestMR {
+public class WordCounter{
 	
 	public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
 		
@@ -19,23 +19,27 @@ public class TestMR {
 		
 		Job job=Job.getInstance(conf);
 		
-	     job.setJarByClass(TestMR.class);
+	     job.setJarByClass(WordCounter.class);
 	     
 	     // Specify various job-specific parameters     
-	     job.setJobName("TestMR");
+	     job.setJobName("wordCounter");
 	     
 //	     job.setInputPath(new Path("in"));
 //	     job.setOutputPath(new Path("out"));
 	     
-	     FileInputFormat.addInputPath(job, new Path("/user/root/mr/input"));
-	     FileOutputFormat.setOutputPath(job, new Path("/user/root/mr/output"));
+	     Path input = new Path("/user/root/mr/input/");
+	     FileInputFormat.addInputPath(job, input);
+	     Path output = new Path("/user/root/mr/output");
+	     if(output.getFileSystem(conf).exists(output)){
+	    	 output.getFileSystem(conf).delete(output,true);
+	     }
+	     FileOutputFormat.setOutputPath(job, output);
 	     
-	     job.setOutputKeyClass(Text.class);
-	     job.setOutputValueClass(IntWritable.class);
+	     job.setMapperClass(MyMapper.class);
+	     job.setMapOutputKeyClass(Text.class);
+	     job.setMapOutputValueClass(IntWritable.class);
 	     
-	     
-	     job.setMapperClass(MRMapper.class);
-	     job.setReducerClass(MRReducer.class);
+	     job.setReducerClass(MyReducer.class);
 
 	     // Submit the job, then poll for progress until the job is complete
 	     job.waitForCompletion(true);

@@ -17,15 +17,7 @@
 <!-- Put site-specific property overrides in this file. -->
 
 <configuration>
-    <property>
-        <name>dfs.replication</name>
-        <value>3</value>
-    </property>
-    <property>
-        <name>dfs.permissions.enabled</name>
-        <value>false</value>
-    </property>
-   
+
 <property>
   <name>dfs.nameservices</name>
   <value>mycluster</value>
@@ -36,23 +28,23 @@
 </property>
 <property>
   <name>dfs.namenode.rpc-address.mycluster.nn1</name>
-  <value>node-wuc-01:8020</value>
+  <value>node12:8020</value>
 </property>
 <property>
   <name>dfs.namenode.rpc-address.mycluster.nn2</name>
-  <value>node-wuc-02:8020</value>
+  <value>node13:8020</value>
 </property>
 <property>
   <name>dfs.namenode.http-address.mycluster.nn1</name>
-  <value>node-wuc-01:50070</value>
+  <value>node12:50070</value>
 </property>
 <property>
   <name>dfs.namenode.http-address.mycluster.nn2</name>
-  <value>node-wuc-02:50070</value>
+  <value>node13:50070</value>
 </property>
 <property>
   <name>dfs.namenode.shared.edits.dir</name>
-  <value>qjournal://node-wuc-01:8485;node-wuc-02:8485;node-wuc-03:8485/mycluster</value>
+  <value>qjournal://node13:8485;node14:8485;node15:8485/mycluster</value>
 </property>
 <property>
   <name>dfs.client.failover.proxy.provider.mycluster</name>
@@ -62,12 +54,25 @@
   <name>dfs.ha.fencing.methods</name>
   <value>sshfence</value>
 </property>
+
 <property>
   <name>dfs.ha.fencing.ssh.private-key-files</name>
-  <value>/root/.ssh/id_dsa</value>
+  <value>/root/.ssh/id_rsa</value>
 </property>
 <property>
    <name>dfs.ha.automatic-failover.enabled</name>
    <value>true</value>
  </property>
+<property>
+   <name>dfs.permissions</name>
+   <value>false</value>
+ </property>
+
+
+
+
+
+
+
+
 </configuration>

@@ -118,5 +118,20 @@
 		    <version>2.9.0</version>
 		</dependency>
 		
+		<!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka -->
+		<dependency>
+		    <groupId>org.apache.kafka</groupId>
+		    <artifactId>kafka_2.12</artifactId>
+		    <version>0.11.0.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/mx4j/mx4j-tools -->
+		<dependency>
+		    <groupId>mx4j</groupId>
+		    <artifactId>mx4j-tools</artifactId>
+		    <version>3.0.1</version>
+		</dependency>
+
+		
+		
   </dependencies>
 </project>

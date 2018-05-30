@@ -1,4 +1,4 @@
-package com.wucstone.ssm.dao.impl;
+package com.wucstone.ssm.dao.user.impl;
 
 import java.util.List;
 import java.util.Map;
@@ -7,17 +7,14 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.wucstone.ssm.dao.UserDao;
+import com.wucstone.ssm.dao.common.BaseDao;
+import com.wucstone.ssm.dao.user.UserDao;
 
 @Repository("userDao")
-public class UserDaoImpl implements UserDao {
+public class UserDaoImpl extends BaseDao implements UserDao {
 	
-	private SqlSessionTemplate sqlSession;
+
 	
-	@Autowired
-	public void setSqlSession(SqlSessionTemplate sqlSession) {
-		this.sqlSession = sqlSession;
-	}
 
 	public void insertUserInfo(Map userInfo) {
 

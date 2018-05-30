@@ -1,4 +1,4 @@
-package com.wucstone.ssm.dao;
+package com.wucstone.ssm.dao.user;
 
 import java.util.List;
 import java.util.Map;

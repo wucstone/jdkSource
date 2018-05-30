@@ -7,7 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.wucstone.ssm.dao.UserDao;
+import com.wucstone.ssm.dao.user.UserDao;
 import com.wucstone.ssm.mapper.UserMapper;
 import com.wucstone.ssm.service.UserService;
 
@@ -39,11 +39,6 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<Map<String, String>> getUserListByParams(Map<String, String> params) throws Exception {
 		
-		Map<String,String> map=new HashMap<String, String>();
-		map.put("name", "name");
-		
-		
-//		userMapper.insertUserInfo(map);
 		return userMapper.getUserListByParams(params);
 //		return userDao.getUserListByParams(params);
 	}

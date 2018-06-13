@@ -50,7 +50,7 @@ public class ZookeeperTest {
 
 			            } else if (EventType.NodeDeleted == event.getType()) {
 			            	connectedSemaphore.countDown();
-			                System.out.println("success delete znode");
+			                System.out.println(event.getPath()+"success delete znode："+Thread.currentThread().hashCode());
 
 			            } else if (EventType.NodeChildrenChanged == event.getType()) {
 			                System.out.println("NodeChildrenChanged");
@@ -63,18 +63,20 @@ public class ZookeeperTest {
 	    zooKeeper=getClient(watcher);
 //		zoo.setData("/brokers/topics", "test".getBytes(), 1);
 //		byte[] b=zoo.getData("/brokers/topics", watcher, new Stat());
-		String p="/wucstone1";
 		  //exists register watch
-        zooKeeper.exists(p, true);
-        String path = zooKeeper.create(p, "456".getBytes(), Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
-        
+		String path="/wucstone1";
+        if(zooKeeper.exists(path, false)==null)
+        path = zooKeeper.create(path, "456".getBytes(), Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+        System.out.println("创建路径"+path+":"+Thread.currentThread().hashCode());
 //        connectedSemaphore.await();
         //get register watch
-        zooKeeper.getData(path, true, stat);
+        zooKeeper.getData(path, watcher, stat);
         zooKeeper.setData(path, "hhhh".getBytes(), -1);
         zooKeeper.exists(path, true);
         //exists register watch
         zooKeeper.delete(path, -1); 
+        System.out.println("删除之后："+Thread.currentThread().hashCode());
+
       
 	}
 	public ZooKeeper getClient(Watcher watcher) throws IOException{

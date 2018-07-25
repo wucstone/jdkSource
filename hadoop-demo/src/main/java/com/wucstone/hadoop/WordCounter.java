@@ -10,7 +10,7 @@ import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
-public class WordCounter{
+public class WordCounterd'd'd'd{
 	
 	public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
 		

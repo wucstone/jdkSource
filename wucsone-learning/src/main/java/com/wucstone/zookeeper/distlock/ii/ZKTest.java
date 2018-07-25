@@ -9,6 +9,8 @@ import org.junit.Test;
 
 public class ZKTest {
 	
+	private volatile int count=0;
+	
 	
 	private CountDownLatch latch=new CountDownLatch(10);
 	
@@ -21,14 +23,14 @@ public class ZKTest {
 				@Override
 				public void run() {
 					try {
-						ZKUtils zkUtils = new ZKUtils();
+						ZKUtils zkUtils = new ZKUtils(count);
 //						ZooKeeper zoo = zkUtils.getConnection();
 						
 						String current=zkUtils.getDistributeLock();
 						
 						if(current!=null){
 							System.out.println(Thread.currentThread().getName()+"do something");
-							Thread.sleep(1000);
+//							Thread.sleep(1000);
 							zkUtils.closeLock(current);
 							latch.countDown();
 						}

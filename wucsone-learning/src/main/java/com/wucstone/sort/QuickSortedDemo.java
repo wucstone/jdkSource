@@ -1,5 +1,7 @@
 package com.wucstone.sort;
 
+import java.util.ArrayList;
+
 import org.junit.Test;
 
 public class QuickSortedDemo {
@@ -52,6 +54,29 @@ public class QuickSortedDemo {
 		}
 		System.out.println(count+"次比较");
 
+	}
+	
+	@Test
+	public void testLink(){
+		
+		
+		SignalDistLink s=new SignalDistLink(new SignalDistLink(new SignalDistLink(new SignalDistLink(),"c"),"b"),"a");
+		
+		
+		System.out.println(s.getName()+s.next().getName()+s.next().next().getName());
+		
+		ArrayList<SignalDistLink> list=new ArrayList<SignalDistLink>();
+		
+		SignalDistLink nn=new SignalDistLink();
+		
+		while(s.hasNext()){
+//			list.add(s);
+			SignalDistLink temp=s.next();
+		}
+		
+		System.out.println(list.get(0).getName());
+		
+		
 	}
 	
 	

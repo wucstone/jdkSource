@@ -39,9 +39,9 @@ public class KafkaTest {
 		
 		Consumer<String, String> consumer=WucstoneKafkaConsumer.getInstance();
 		
-		consumer.subscribe(Collections.singletonList("topic2"));
+		consumer.subscribe(Collections.singletonList("mytopic"));
 
-        System.out.println("Subscribed to topic " + "test");
+        System.out.println("Subscribed to topic " + "mytopic");
         int i = 0;
 
         while (true) {

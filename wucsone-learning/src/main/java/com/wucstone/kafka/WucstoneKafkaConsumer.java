@@ -6,11 +6,6 @@ import java.util.Properties;
 
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 
-
-
-
-
-
 public class WucstoneKafkaConsumer {
 	
 	private WucstoneKafkaConsumer() {

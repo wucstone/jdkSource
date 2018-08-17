@@ -26,14 +26,6 @@ public class ZookeeperTest {
     private ZooKeeper zooKeeper;
 	
 	
-    private static Thread t=new Thread(new Runnable() {
-		
-		@Override
-		public void run() {
-			System.out.println("执行结束！！！");
-		}
-	});
-    
 	@Test
 	public void testZoo() throws IOException, KeeperException, InterruptedException{
 		Watcher watcher =new Watcher() {
@@ -59,7 +51,7 @@ public class ZookeeperTest {
 				}
 			}
 		};
-		Runtime.getRuntime().addShutdownHook(t);
+//		Runtime.getRuntime().addShutdownHook(t);
 	    zooKeeper=getClient(watcher);
 //		zoo.setData("/brokers/topics", "test".getBytes(), 1);
 //		byte[] b=zoo.getData("/brokers/topics", watcher, new Stat());
@@ -81,7 +73,7 @@ public class ZookeeperTest {
 	}
 	public ZooKeeper getClient(Watcher watcher) throws IOException{
 //		return new ZooKeeper("node11:2181,node12:2181,node13:2181", SESSION_TIMEOUT, watcher);
-		return new ZooKeeper("node-wuc-02:2181,node-wuc-03:2181,node-wuc-04:2181", SESSION_TIMEOUT, watcher);
+		return new ZooKeeper("node11:2181,node12:2181,node13:2181", SESSION_TIMEOUT, watcher);
 	}
 	
 	public ZooKeeper getClient2(Watcher watcher) throws IOException{

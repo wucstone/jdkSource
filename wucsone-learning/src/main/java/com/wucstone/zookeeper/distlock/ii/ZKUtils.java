@@ -18,7 +18,7 @@ import org.apache.zookeeper.data.Stat;
 public class ZKUtils {
 	
 	
-	private static final String ZK_URL = "node-wuc-04:2181,node-wuc-02:2181,node-wuc-03:2181";
+	private static final String ZK_URL = "node11:2181,node12:2181,node13:2181";
 	private static final int ZK_TIMEOUT = 3000;
 	private CountDownLatch latch=new CountDownLatch(1);
 //	private static volatile List<String> nodes=new ArrayList<String>();
@@ -79,7 +79,7 @@ public class ZKUtils {
 //
 //	}
 	
-	public ZKUtils() throws KeeperException, InterruptedException, IOException {
+	public ZKUtils(int count) throws KeeperException, InterruptedException, IOException {
 		zoo= new ZooKeeper(ZK_URL, 3000, new Watcher() {
 			@Override
 			public void process(WatchedEvent event) {

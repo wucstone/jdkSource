@@ -1,4 +1,4 @@
-package com.wucstone.thread.cyclicBarrier;
+package com.wucstone.thread.util.cyclicBarrier;
 
 import java.util.concurrent.CyclicBarrier;
 

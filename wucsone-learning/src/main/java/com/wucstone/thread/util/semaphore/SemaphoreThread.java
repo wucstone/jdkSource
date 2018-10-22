@@ -1,4 +1,4 @@
-package com.wucstone.thread.semaphore;
+package com.wucstone.thread.util.semaphore;
 
 import java.util.concurrent.Semaphore;
 

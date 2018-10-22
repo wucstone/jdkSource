@@ -22,6 +22,11 @@ public class SignalDistLink {
 		this.next = next;
 		this.name = name;
 	}
+	
+	public SignalDistLink(String name) {
+		super();
+		this.name = name;
+	}
 
 	public SignalDistLink getNext() {
 		return next;

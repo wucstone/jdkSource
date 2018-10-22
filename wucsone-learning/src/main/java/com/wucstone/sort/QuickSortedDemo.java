@@ -1,6 +1,7 @@
 package com.wucstone.sort;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import org.junit.Test;
 
@@ -35,49 +36,40 @@ public class QuickSortedDemo {
 	 * 快速排序
 	 */
 	@Test
-	public void testQuickSorted(){
-		int count=0;
-		for (int j = 0; j < arrs.length; j++) {
-			for (int i = 0; i < arrs.length-1; i++) {
-				int temp;
-				count++;
-				if(arrs[i] > arrs[i+1]){
-					temp=arrs[i];
-					arrs[i]=arrs[i+1];
-					arrs[i+1]=temp;
-				}
-			}
-		}
-		
-		for (int i = 0; i < arrs.length; i++) {
-			System.out.println(arrs[i]);
-		}
-		System.out.println(count+"次比较");
+    public void testQuickSort(){
+        int[] arr = {3,2,7,10,1,9,0,5};
+        quickSort(arr,0,arr.length-1);
+        for(int i : arr){
+        	System.out.print(i+" ");
+        }
+    }
+    private int partition(int[] a, int low,int high){
+        int pivot = a[low];
+       
+        while(low<high){
+            while(low<high && a[high]>=pivot){
+            	high--;
+            } 
+            a[low] = a[high];
 
-	}
-	
-	@Test
-	public void testLink(){
-		
-		
-		SignalDistLink s=new SignalDistLink(new SignalDistLink(new SignalDistLink(new SignalDistLink(),"c"),"b"),"a");
-		
-		
-		System.out.println(s.getName()+s.next().getName()+s.next().next().getName());
-		
-		ArrayList<SignalDistLink> list=new ArrayList<SignalDistLink>();
-		
-		SignalDistLink nn=new SignalDistLink();
-		
-		while(s.hasNext()){
-//			list.add(s);
-			SignalDistLink temp=s.next();
-		}
-		
-		System.out.println(list.get(0).getName());
-		
-		
-	}
+            while(low<high && a[low]<=pivot){
+            	low++;
+            } 
+            a[high]=a[low];
+        }
+        a[low] = pivot;
+        return low;
+    }
+
+    public void quickSort(int[] data,int low,int high){
+        if(low<high){
+            int pivot = partition(data,low,high);
+            quickSort(data,low,pivot-1);
+
+            quickSort(data,pivot+1,high);
+
+        }
+    }
 	
 	
 

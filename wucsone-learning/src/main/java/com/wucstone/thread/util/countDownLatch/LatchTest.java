@@ -1,4 +1,4 @@
-package com.wucstone.thread.countDownLatch;
+package com.wucstone.thread.util.countDownLatch;
 
 import java.util.concurrent.CountDownLatch;
 

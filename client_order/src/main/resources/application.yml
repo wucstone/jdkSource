@@ -3,7 +3,7 @@ spring:
     name: service.order
     
 server:
-  port: 8763
+  port: 8765
   
 eureka:
   client:

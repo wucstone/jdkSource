@@ -6,4 +6,18 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>springCloud-api-order-service-impl</artifactId>
+  
+  
+  <dependencies>
+  	<dependency>
+  	   <groupId>com.wucstone</groupId>
+  	   <artifactId>springCloud-api-order-service</artifactId>
+  	   <version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  	<dependency>
+	  	<groupId>com.wucstone</groupId>
+	    <artifactId>springCloud-api-member-service</artifactId>
+	    <version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 </project>

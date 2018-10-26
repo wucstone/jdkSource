@@ -15,6 +15,7 @@ public class OrderServiceImpl implements IOrderService{
 	private Order2MemberFeignClient order2MemberFeignClient;
 
 
+	//未解决服务雪崩效应
 	@RequestMapping("/getMemberFromOrderService")
 	public String getMemberFromOrderService(String name) {
 		UserEntity user = order2MemberFeignClient.getMember(name);

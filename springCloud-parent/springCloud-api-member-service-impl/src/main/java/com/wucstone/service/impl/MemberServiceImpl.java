@@ -11,11 +11,17 @@ import com.wucstone.service.IMemberService;
 public class MemberServiceImpl implements IMemberService{
 
 	@RequestMapping("/getMember")
-	public UserEntity getMember(@RequestParam("name") String name) {
+	public UserEntity getMember(String name) {
 		
 		UserEntity entity = new UserEntity();
 		entity.setName(name);
 		entity.setAge(28);
+		
+		try {
+			Thread.sleep(5500);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		return entity;
 	}
 

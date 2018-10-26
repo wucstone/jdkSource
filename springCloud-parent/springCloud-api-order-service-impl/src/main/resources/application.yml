@@ -9,3 +9,19 @@ eureka:
   client:
     serviceUrl:
         defaultZone: http://localhost:8761/eureka/
+
+
+##设置feign调用的超时时间
+ribbon:
+ ##请求处理的超时时间
+ ReadTimeout: 7000
+ ##请求连接的超时时间
+ ConnectTimeout: 5000
+ 
+##开启hystrix断路器
+feign:
+ hystrix:
+  enabled:true 
+
+       
+

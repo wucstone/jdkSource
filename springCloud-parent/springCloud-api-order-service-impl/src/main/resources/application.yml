@@ -22,6 +22,14 @@ ribbon:
 feign:
  hystrix:
   enabled:true 
+  
+##禁用hystrix的超时时间，不过一般情况下不需要禁用，稍微延长超时时间就行
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false
 
        
 

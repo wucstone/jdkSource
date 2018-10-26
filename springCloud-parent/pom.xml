@@ -17,7 +17,7 @@
   <parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.2.RELEASE</version>
+		<version>1.5.13.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<properties>
@@ -50,6 +50,11 @@
 	        <groupId>org.projectlombok</groupId>
 	        <artifactId>lombok</artifactId>
 	    </dependency>
+		<!-- springCloud  整合hystrix -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-hystrix</artifactId>
+		</dependency>
 	</dependencies>
 	<dependencyManagement>
 	    <dependencies>

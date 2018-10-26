@@ -18,7 +18,7 @@ public class MemberServiceImpl implements IMemberService{
 		entity.setAge(28);
 		
 		try {
-			Thread.sleep(5500);
+			Thread.sleep(1500);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

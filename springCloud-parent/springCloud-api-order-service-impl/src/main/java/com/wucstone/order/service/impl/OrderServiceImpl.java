@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.wucstone.api.order.service.IOrderService;
 import com.wucstone.entity.UserEntity;
-import com.wucstone.order.FeignClient.Order2MemberFeignClient;
+import com.wucstone.order.api.feignClient.Order2MemberFeignClient;
 
 @RestController
 public class OrderServiceImpl implements IOrderService{

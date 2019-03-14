@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.wucstone.ssm.dao.common.BaseDao;
 import com.wucstone.ssm.dao.user.UserDao;
 
-@Repository("userDao")
+@Repository("userDaoImpl")
 public class UserDaoImpl extends BaseDao implements UserDao {
 	
 
@@ -24,11 +24,9 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 		List<Map<String,String>> mapList= sqlSession.selectList("user.getUserInfoByParams", params);
 		return mapList.get(0);
 	}
-	@Override
 	public int getUserCountByParams(Map<String, String> params)throws Exception {
 		return sqlSession.selectOne("user.getUserCountByParams",params);
 	}
-	@Override
 	public List<Map<String, String>> getUserListByParams(Map<String, String> params) throws Exception {
 		return sqlSession.selectList("user.getUserInfoByParams",params);
 	}

@@ -11,18 +11,18 @@ import com.wucstone.ssm.dao.user.UserDao;
 import com.wucstone.ssm.mapper.UserMapper;
 import com.wucstone.ssm.service.UserService;
 
-@Service("userService")
+@Service("userServiceImpl")
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	private UserDao userDao;
+	private UserDao userDaoImpl;
 	
-	@Autowired
-	private UserMapper userMapper;
+//	@Autowired
+//	private UserMapper userMapper;
 
 	public Boolean userLogin(Map<String, String> params) throws Exception {
 		
-		Map<String,String> userInfo=userDao.getUserInfoByParams(params);
+		Map<String,String> userInfo=userDaoImpl.getUserInfoByParams(params);
 		if(params.get("userAge").equals(userInfo.get("userAge"))){
 			return true;
 		}else{
@@ -31,16 +31,14 @@ public class UserServiceImpl implements UserService {
 
 	}
 
-	@Override
 	public int getUserCountByParams(Map<String, String> params)throws Exception {
-		return userDao.getUserCountByParams(params);
+		return userDaoImpl.getUserCountByParams(params);
 	}
 
-	@Override
 	public List<Map<String, String>> getUserListByParams(Map<String, String> params) throws Exception {
 		
-		return userMapper.getUserListByParams(params);
-//		return userDao.getUserListByParams(params);
+//		return userMapper.getUserListByParams(params);
+		return userDaoImpl.getUserListByParams(params);
 	}
 
 }

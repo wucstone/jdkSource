@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,7 +22,7 @@ import com.wucstone.ssm.util.HttpRequestUtil;
 public class UserController {
 	
 	@Autowired
-	private UserService userService;
+	private UserService userServiceImpl;
 
 
 	@RequestMapping("/userLogin")
@@ -30,7 +31,7 @@ public class UserController {
 		
 		Map<String,String> params=HttpRequestUtil.getParamsByRequest(request);
 		
-		Boolean flag=userService.userLogin(params);
+		Boolean flag=userServiceImpl.userLogin(params);
 		if(flag){
 			return "index";
 		}else{
@@ -49,8 +50,8 @@ public class UserController {
 		Map<String,String> params=HttpRequestUtil.getParamsByRequest(request);
 		Map result=new HashMap();
 		
-		int total=userService.getUserCountByParams(params);
-		List<Map<String,String>> rows=userService.getUserListByParams(params);
+		int total=userServiceImpl.getUserCountByParams(params);
+		List<Map<String,String>> rows=userServiceImpl.getUserListByParams(params);
 		result.put("total",total );
 		result.put("rows", rows);
 		return JSONUtils.toJSONString(result);

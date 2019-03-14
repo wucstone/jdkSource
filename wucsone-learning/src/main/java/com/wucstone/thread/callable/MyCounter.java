@@ -45,7 +45,7 @@ public class MyCounter implements Callable<Long>{
 		for (int i = 0; i < arr.length; i++) {
 			sum+=arr[i];
 		}
-		Thread.currentThread().sleep(1000);
+		Thread.currentThread().sleep(1002);
 //		latch.countDown();
 //		System.out.println(Thread.currentThread().getName()+"from:"+arr[0]+"--to:"+arr[arr.length-1]+"--"+sum);
 		

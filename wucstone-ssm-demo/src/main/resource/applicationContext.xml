@@ -49,8 +49,8 @@
 
 
 <!-- 会对basePackage下的dao自动创建mapperFactoryBean -->
-<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-  <property name="basePackage" value="com.wucstone.ssm.mapper" />
-    <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
-</bean>
+<!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+  <!--<property name="basePackage" value="com.wucstone.ssm.mapper" />-->
+    <!--<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />-->
+<!--</bean>-->
 </beans>  

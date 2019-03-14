@@ -60,7 +60,7 @@ public class MyCounterTest {
 		Executor exe = Executors.newCachedThreadPool();
 		exe.execute(task);
 		try {
-			task.get(1,TimeUnit.SECONDS);
+			System.out.println(task.get(1,TimeUnit.SECONDS));
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} catch (ExecutionException e) {

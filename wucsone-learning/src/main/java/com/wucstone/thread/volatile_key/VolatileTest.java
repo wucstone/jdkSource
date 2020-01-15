@@ -18,16 +18,16 @@ public class VolatileTest {
 		
 //		ThreadPoolExecutor executor=new ThreadPoolExecutor(1, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingDeque<Runnable>());
 				
-		ExecutorService executors= Executors.newFixedThreadPool(3);
-		ReentrantLock lock=new ReentrantLock();
-		
-		for (int i = 0; i < 3; i++) {
-			executors.submit(new VolatileKeyDemo(lock));
-		}
-		while(true){
-			
-		}
-		
+//		ExecutorService executors= Executors.newFixedThreadPool(3);
+//		ReentrantLock lock=new ReentrantLock();
+//
+//		for (int i = 0; i < 3; i++) {
+//			executors.submit(new VolatileKeyDemo(lock));
+//		}
+//		while(true){
+//
+//		}
+		System.out.println((int)((Math.random()*9+1)*100000));
 		
 	}
 	

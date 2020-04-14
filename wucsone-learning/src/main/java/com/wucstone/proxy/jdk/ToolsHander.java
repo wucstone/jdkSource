@@ -1,4 +1,4 @@
-package com.wucstone.proxy;
+package com.wucstone.proxy.jdk;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

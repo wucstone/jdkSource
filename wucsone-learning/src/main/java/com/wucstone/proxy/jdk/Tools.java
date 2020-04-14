@@ -1,4 +1,4 @@
-package com.wucstone.proxy;
+package com.wucstone.proxy.jdk;
 
 public interface Tools {
 

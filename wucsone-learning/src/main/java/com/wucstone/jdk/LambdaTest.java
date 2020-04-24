@@ -39,9 +39,9 @@ public interface LambdaTest {
 //		Predicate<String> p =""::equals;
 //		
 //		
-//		System.out.println(p.test(""));
+//		System.out.println(p.spinlock(""));
 //		
-//		System.out.println((p.or("a"::equals)).test("s"));
+//		System.out.println((p.or("a"::equals)).spinlock("s"));
 //		
 //		list=list.stream().distinct().collect(Collectors.toList());
 //		System.out.println(list);
@@ -60,7 +60,7 @@ public interface LambdaTest {
 //		BinaryOperator<T>
 //		Optional<T>
 		
-//		new Predicate(x -> x.equals("") ).test("1");
+//		new Predicate(x -> x.equals("") ).spinlock("1");
 
 		Predicate test = x -> x.equals("");
 		System.out.println(test.test("a"));

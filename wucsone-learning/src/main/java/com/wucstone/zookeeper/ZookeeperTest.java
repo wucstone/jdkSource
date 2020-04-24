@@ -53,7 +53,7 @@ public class ZookeeperTest {
 		};
 //		Runtime.getRuntime().addShutdownHook(t);
 	    zooKeeper=getClient(watcher);
-//		zoo.setData("/brokers/topics", "test".getBytes(), 1);
+//		zoo.setData("/brokers/topics", "spinlock".getBytes(), 1);
 //		byte[] b=zoo.getData("/brokers/topics", watcher, new Stat());
 		  //exists register watch
 		String path="/wucstone1";

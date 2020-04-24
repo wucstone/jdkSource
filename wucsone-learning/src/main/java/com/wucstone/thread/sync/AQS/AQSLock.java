@@ -13,7 +13,7 @@ public class AQSLock implements Lock{
 	private AQSSync aqs;
 	
 	
-	private class AQSSync extends AbstractQueuedSynchronizer{
+	private class AQSSync extends AbstractQueuedSynchronizer	{
 		
 		@Override
 		protected boolean tryAcquire(int arg) {
@@ -76,6 +76,7 @@ public class AQSLock implements Lock{
 	public Condition newCondition() {
 		return null;
 	}
+
 	public AQSLock() {
 		this.aqs = new AQSSync();
 	}

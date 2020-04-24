@@ -41,7 +41,7 @@ public class ReferenceTest {
 		
 
 		//栈溢出
-//		test();
+//		spinlock();
 		
 	}
 	public static void test(){

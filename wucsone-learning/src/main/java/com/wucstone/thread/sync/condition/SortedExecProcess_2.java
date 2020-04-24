@@ -16,45 +16,57 @@ public class SortedExecProcess_2 {
 	
 	public void first(){
 		lock.lock();
-		if(cnt % 3 !=0){
-			try {
-				first.await();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+		try{
+			if(cnt % 3 !=0){
+				try {
+					first.await();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 			}
+			System.out.println("first function is running...");
+			cnt++;
+			second.signal();
+		}finally {
+			lock.unlock();
 		}
-		System.out.println("first function is running...");
-		cnt++;
-		second.signal();
-		lock.unlock();
+
 	}
 	public void second(){
 		lock.lock();
-		if(cnt % 3 !=1){
-			try {
-				second.await();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+		try{
+			if(cnt % 3 !=1){
+				try {
+					second.await();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 			}
+			System.out.println("second function is running...");
+			cnt++;
+			third.signal();
+		}finally {
+			lock.unlock();
 		}
-		System.out.println("second function is running...");
-		cnt++;
-		third.signal();
-		lock.unlock();
+
 	}
 	public void third(){
 		lock.lock();
-		if(cnt % 3 !=2){
-			try {
-				third.await();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+		try{
+			if(cnt % 3 !=2){
+				try {
+					third.await();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 			}
+			System.out.println("third function is running...");
+			cnt++;
+			first.signal();
+		}finally{
+			lock.unlock();
 		}
-		System.out.println("third function is running...");
-		cnt++;
-		first.signal();
-		lock.unlock();
+
 	}
 
 	@Test

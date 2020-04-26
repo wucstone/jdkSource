@@ -55,7 +55,6 @@ public class SpinLockOperator<T> {
                         flag = false;
                     }
                     Thread.sleep(period);
-                    Thread.sleep(4000L);
                 }
                 return (T)obj;
             }

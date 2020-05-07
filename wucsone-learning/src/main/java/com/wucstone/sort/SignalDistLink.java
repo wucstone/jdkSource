@@ -1,5 +1,8 @@
 package com.wucstone.sort;
 
+import lombok.Data;
+
+@Data
 public class SignalDistLink {
 	
 	private  SignalDistLink next;
@@ -14,7 +17,6 @@ public class SignalDistLink {
 	}
 
 	public SignalDistLink() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public SignalDistLink(SignalDistLink next, String name) {
@@ -28,23 +30,4 @@ public class SignalDistLink {
 		this.name = name;
 	}
 
-	public SignalDistLink getNext() {
-		return next;
-	}
-
-	public void setNext(SignalDistLink next) {
-		this.next = next;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	
-	
-	
 }

@@ -83,7 +83,8 @@ public interface LambdaTest {
 			hashMap.put(y, 1);
 			return hashMap;
 		}).forEach(x -> System.out.println(x.getClass()));
-		
+
+
 		
 		
 		

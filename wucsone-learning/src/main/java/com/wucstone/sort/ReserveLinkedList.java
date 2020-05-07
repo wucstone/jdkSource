@@ -11,11 +11,19 @@ public class ReserveLinkedList {
 		SignalDistLink a2 = new SignalDistLink("b");
 		SignalDistLink a3 = new SignalDistLink("c");
 		SignalDistLink a4 = new SignalDistLink("d");
+		SignalDistLink a5 = new SignalDistLink("e");
+		SignalDistLink a6 = new SignalDistLink("f");
+		SignalDistLink a7 = new SignalDistLink("g");
+
 		a1.setNext(a2);
 		a2.setNext(a3);
 		a3.setNext(a4);
-		
-		
+		a4.setNext(a5);
+		a5.setNext(a6);
+		a6.setNext(a7);
+
+
+
 		SignalDistLink current = a1;
 		while(current.hasNext()){
 			System.out.print(current.getName()+"-");
@@ -38,8 +46,8 @@ public class ReserveLinkedList {
 
 	/**
 	 * 
-	 * @param first 当前的head节点
-	 * @param current 交换节点
+	 * @param first 当前的head节点 待互换位置的连标的头
+	 * @param current 交换节点     待互换位置的连标的尾
 	 * @param first_ 原head节点
 	 * @return
 	 */

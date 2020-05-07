@@ -1,6 +1,7 @@
 package com.wucstone.spinlock;
 
 
+import com.wucstone.utils.ThreadPoolResource;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.Callable;
@@ -44,7 +45,7 @@ public class SpinLockOperator<T> {
 
     public T submit(){
 
-        Future<T> future = Executors.newFixedThreadPool(10).submit(new Callable<T>() {
+        Future<T> future = ThreadPoolResource.CALC_THREAD_POOL.submit(new Callable<T>() {
 
             @Override
             public T call() throws Exception {

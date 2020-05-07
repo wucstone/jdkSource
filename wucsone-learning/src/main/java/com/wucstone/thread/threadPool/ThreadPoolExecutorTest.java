@@ -1,8 +1,7 @@
 package com.wucstone.thread.threadPool;
 
 import java.util.Date;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 public class ThreadPoolExecutorTest {
 
@@ -16,12 +15,13 @@ public class ThreadPoolExecutorTest {
 		      }catch (InterruptedException e) {
 		    	  e.printStackTrace();
 		      }
-		      cachedThreadPool.execute(new Runnable() {
-		    	  public void run() {
-		    		  System.out.println(index+"----"+new Date().getTime());
-		    	  }
-		      });
+			  cachedThreadPool.shutdown();
 		  }
 		  System.out.println(Thread.currentThread().getName());
+
+		 ThreadPoolExecutor executor = new ThreadPoolExecutor(10, 1000, 1000, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>());
+		 executor.shutdown();
+
+
 	 }
 }

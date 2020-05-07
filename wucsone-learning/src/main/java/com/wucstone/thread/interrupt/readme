@@ -1,0 +1,2 @@
+InterruptedException 会终止线程任务
+timeOutException  不会中断

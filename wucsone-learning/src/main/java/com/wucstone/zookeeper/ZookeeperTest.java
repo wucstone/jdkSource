@@ -29,7 +29,7 @@ public class ZookeeperTest {
 	@Test
 	public void testZoo() throws IOException, KeeperException, InterruptedException{
 		Watcher watcher =new Watcher() {
-			
+			@Override
 			public void process(WatchedEvent event) {
 				 if (KeeperState.SyncConnected == event.getState()) {
 			            if (EventType.None == event.getType() && null == event.getPath()) {

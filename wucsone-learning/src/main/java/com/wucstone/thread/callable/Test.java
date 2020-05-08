@@ -1,5 +1,7 @@
 package com.wucstone.thread.callable;
 
+import com.wucstone.utils.ThreadPoolResource;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -22,15 +24,15 @@ public class Test {
 		for (int i = 0; i < list.length; i++) {
 			list[i]=i;
 		}
-		System.out.println("开始时间"+new Date().getTime());
-	    ExecutorService exec=Executors.newFixedThreadPool(10);  
+		System.out.println("开始时间"+System.currentTimeMillis());
+	    ExecutorService exec= ThreadPoolResource.CALC_THREAD_POOL;
 	    
 		for (int i = 0; i < 10; i++) {
-			System.out.println("进入for时间："+new Date().getTime());
+			System.out.println("进入for时间："+System.currentTimeMillis());
 			int[] subList=Arrays.copyOfRange(list, 10*i, 10*(i+1));
 			MyCounter counter=new MyCounter(subList);
 			results.add(exec.submit(counter));
-			System.out.println("出for时间："+new Date().getTime());
+			System.out.println("出for时间："+System.currentTimeMillis());
 
 		}
 		
@@ -48,12 +50,12 @@ public class Test {
 		}
 		System.out.println("jieshu ");
 		System.out.println(sum);
-		System.out.println("结束时间1--"+new Date().getTime());
+		System.out.println("结束时间1--"+System.currentTimeMillis());
 		for (int i = 0; i < list.length; i++) {
 			sum1+=list[i];
 		}
 		System.out.println(sum1);
-		System.out.println("结束时间2--"+new Date().getTime());
+		System.out.println("结束时间2--"+System.currentTimeMillis());
 	}
 	
 	

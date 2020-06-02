@@ -6,4 +6,6 @@ package com.wucstone.spinlock;
 public interface SpinLockTask<T> {
 
     T doTask();
+
+    void handleException(Exception e);
 }

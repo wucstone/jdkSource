@@ -16,9 +16,16 @@ public class Main {
         String result = new SpinLockOperator<String>(p, new SpinLockTask<String>() {
             @Override
             public String doTask() {
-                return "success";
+
+                throw new RuntimeException("1234567890");
+//                return "success";
             }
-        },100L,3000L).submit();
+
+            @Override
+            public void handleException(Exception e) {
+                System.out.println(e.getMessage());
+            }
+        },100L,300000L).submit();
 
 
 

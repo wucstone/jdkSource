@@ -8,14 +8,20 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.collect.*;
 import org.junit.Test;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class TestOptional {
 
     @Test
     public void testOptional(){
+
+        System.out.println(IntStream.range(0,10).toArray()[9]);
+
         Optional<String> optional = Optional.of("null");
 
         String a = "asd";
@@ -31,6 +37,11 @@ public class TestOptional {
         ImmutableList<String> list = ImmutableList.of("a","a","c");
         ImmutableSet<String> set = ImmutableSet.of("a","a","c");
         ImmutableMap<String,String> map = ImmutableMap.of("a","a");
+
+
+        Range<Integer> range = Range.closedOpen(1,10);
+
+
 
 
 

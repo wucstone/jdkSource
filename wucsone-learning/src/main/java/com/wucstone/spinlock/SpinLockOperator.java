@@ -66,7 +66,7 @@ public class SpinLockOperator<T> {
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
-            e.printStackTrace();
+            task.handleException(e);
         } catch (TimeoutException e) {
             log.error("自选任务超时，执行任务task:{}",task.getClass());
             future.cancel(true);

@@ -10,7 +10,6 @@ public class Main {
 	
     public static void main(String[] args) {
 
-    	AnnotationConfigApplicationContext ac=new AnnotationConfigApplicationContext(SpringConfig.class);
         SpringApplication.run(Main.class, args);
     }
 }

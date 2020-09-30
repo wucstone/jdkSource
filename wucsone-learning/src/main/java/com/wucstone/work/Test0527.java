@@ -1,17 +1,24 @@
 package com.wucstone.work;
 
+
 import org.junit.Test;
+
+import java.util.HashMap;
+
 
 public class Test0527 {
 
 
     @Test
-    public void testMain(){
+    public void testMain()throws Exception{
+       HashMap map =  new HashMap<>();
+       map.put("name","wuchuang");
 
-        Integer before = 100000;
-        Integer after = 100000;
-
-        System.out.println(before.equals(after));
+       map.entrySet().stream().forEach(e->{
+           System.out.println(e.hashCode());
+           System.out.println(e.hashCode() & 15);
+       });
     }
+
 
 }

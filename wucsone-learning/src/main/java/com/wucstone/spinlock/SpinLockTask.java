@@ -7,5 +7,4 @@ public interface SpinLockTask<T> {
 
     T doTask();
 
-    void handleException(Exception e);
 }

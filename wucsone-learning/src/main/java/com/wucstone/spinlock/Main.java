@@ -12,20 +12,16 @@ public class Main {
     @Test
     public void testMain(){
 
-        Predicate p = o -> o!= null;
+        Predicate<String> p = o -> "1".equals(o);
         String result = new SpinLockOperator<String>(p, new SpinLockTask<String>() {
             @Override
             public String doTask() {
-
-                throw new RuntimeException("1234567890");
-//                return "success";
+                System.out.println("0");
+                return "0";
             }
+        },30000L,3000L).submit();
 
-            @Override
-            public void handleException(Exception e) {
-                System.out.println(e.getMessage());
-            }
-        },100L,300000L).submit();
+        System.out.println(result);
 
 
 

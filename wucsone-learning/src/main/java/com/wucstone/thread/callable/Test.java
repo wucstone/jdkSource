@@ -15,6 +15,12 @@ import java.util.concurrent.Future;
 public class Test {
 
 	public static void main(String[] args) throws InterruptedException {
+
+
+		new Thread().start();
+
+
+
 		CountDownLatch latch=new CountDownLatch(10);
 		
 		 List<Future<Long>> results=new ArrayList<Future<Long>>();  

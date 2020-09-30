@@ -27,6 +27,8 @@ public class SpinLockOperator<T> {
     private Long timeout;
     private Long period;
 
+    private ThreadLocal<T> local = new ThreadLocal<>();
+
 
     /**
      *
@@ -48,14 +50,15 @@ public class SpinLockOperator<T> {
         Future<T> future = ThreadPoolResource.CALC_THREAD_POOL.submit(new Callable<T>() {
 
             @Override
-            public T call() throws Exception {
+            public synchronized T call() throws Exception {
                 Object obj = null;
                 while(flag){
                     obj = task.doTask();
+                    local.set((T)obj);
                     if(predicate.test(obj)){
                         flag = false;
                     }
-                    Thread.sleep(period);
+                    wait(period);
                 }
                 return (T)obj;
             }
@@ -64,9 +67,9 @@ public class SpinLockOperator<T> {
         try {
             result = future.get(timeout, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            log.error("自选任务超时，执行任务task:{}",task.getClass());
         } catch (ExecutionException e) {
-            task.handleException(e);
+            log.error("自选任务超时，执行任务task:{}",task.getClass());
         } catch (TimeoutException e) {
             log.error("自选任务超时，执行任务task:{}",task.getClass());
             future.cancel(true);

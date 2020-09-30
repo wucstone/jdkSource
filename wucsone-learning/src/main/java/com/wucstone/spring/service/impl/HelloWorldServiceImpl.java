@@ -1,26 +1,33 @@
 package com.wucstone.spring.service.impl;
 
-import com.alibaba.fastjson.JSONObject;
-import com.wucstone.spring.event.HelloEventPublish;
-import com.wucstone.spring.service.HelloWorldService;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
-import java.util.HashMap;
-import java.util.Map;
 
 @Service
-public class HelloWorldServiceImpl implements HelloWorldService {
+public class HelloWorldServiceImpl implements InitializingBean {
 
 
 	@Resource
-	private HelloEventPublish helloEventPublish;
+	private WorldServiceImpl worldService;
+
+	@PostConstruct
+	public void sayHello() {
+
+		System.out.println("PostConstruct");
+	}
+
+	public HelloWorldServiceImpl() {
+		System.out.println("create"+this.worldService);
+		System.out.println("create");
+	}
 
 	@Override
-	public String sayHello(String name) {
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("afterPropertiesSet"+this.worldService);
 
-		System.out.println("HelloWorldServiceImpl,thread----" + Thread.currentThread().getName());
-		helloEventPublish.publish(name);
-		return "Hello ".concat(name);
+		System.out.println("afterPropertiesSet");
 	}
 }

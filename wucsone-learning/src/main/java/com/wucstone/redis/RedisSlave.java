@@ -9,6 +9,7 @@ import redis.clients.jedis.JedisPool;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Set;
 
 
 public class RedisSlave {
@@ -22,22 +23,28 @@ public class RedisSlave {
 //        System.out.println(df.format(local));
 
 
-        System.out.println("2020年05月10日 00:00:00".substring(5,11));
-
-
-        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
+//        System.out.println("2020年05月10日 00:00:00".substring(5,11));
+//
+//
+//        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
 
 
 
 //        System.out.println(LocalDate.parse("2020年05月17日", df));
 
 
-//        JedisPool pool = new JedisPool("r-bp1fub54xyjawe8q2ipd.redis.rds.aliyuncs.com",6380);
-//        Jedis jedis = pool.getResource();
-//        jedis.auth("wu9o129*whK21wQLJs");
-//        jedis.select(200);
+        JedisPool pool = new JedisPool("r-bp1fub54xyjawe8q2ipd.redis.rds.aliyuncs.com",6380);
+        Jedis jedis = pool.getResource();
+        jedis.auth("wu9o129*whK21wQLJs");
+        jedis.select(200);
+        Set<String> set1 = jedis.keys("HH_OPS_VERSION_LIMIT*");
+
+
+        for(String s:set1){
+            jedis.del(s);
+        }
 //
-//        System.out.println(JSONObject.toJSONString(jedis.get("HH_STORE_LOCK_cocaCola------------:sync:")));
+        System.out.println(JSONObject.toJSONString(jedis.keys("HH_OPS_VERSION_LIMIT*")));
 //
 //        jedis.del("HH_STORE_LOCK_cocaCola------------:sync:");
 //        jedis.del("cocaCola------------:sync::INDEX");

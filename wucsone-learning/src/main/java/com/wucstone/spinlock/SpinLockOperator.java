@@ -20,14 +20,12 @@ import java.util.function.Predicate;
 @Slf4j
 public class SpinLockOperator<T> {
 
-    private Predicate predicate;
+    private Predicate<T> predicate;
     private SpinLockTask<T> task;
     private volatile boolean flag = true;
 
     private Long timeout;
     private Long period;
-
-    private ThreadLocal<T> local = new ThreadLocal<>();
 
 
     /**
@@ -51,10 +49,9 @@ public class SpinLockOperator<T> {
 
             @Override
             public synchronized T call() throws Exception {
-                Object obj = null;
+                T obj = null;
                 while(flag){
-                    obj = task.doTask();
-                    local.set((T)obj);
+                    obj = (T) task.doTask();
                     if(predicate.test(obj)){
                         flag = false;
                     }
@@ -72,7 +69,7 @@ public class SpinLockOperator<T> {
             log.error("自选任务超时，执行任务task:{}",task.getClass());
         } catch (TimeoutException e) {
             log.error("自选任务超时，执行任务task:{}",task.getClass());
-            future.cancel(true);
+//            future.cancel(true);
         }
         return result;
     }
